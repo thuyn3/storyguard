@@ -2,7 +2,7 @@
 
 In this project, I built a small Python harness that uses the Claude API to generate bedtime stories then evaluates them with **rule-based checks** and an **LLM-as-judge rubric**. I also added **regression checks** to catch quality or safety issues when prompts change. The project helped me practice the core LLM product workflow: writing prompts, measuring quality on a fixed evaluation set, comparing versions and figuring out what still needs improvement.
 
-**Key result:*8 I tested two prompt versions using `claude-sonnet-5-5`. Moving from a one-line baseline prompt (`v1`) to a more structured prompt with age, length and safety guidelines (`v2`) increased the rule-based pass rate from **0% to 100%** for two runs. The safety score also improved from **4.4 to 4.8–5.0 out of 5** while **creativity dropped slightly from 4.0 to around 3.7.**
+**Key result:** I tested two prompt versions using `claude-sonnet-5-5`. Moving from a one-line baseline prompt (`v1`) to a more structured prompt with age, length and safety guidelines (`v2`) increased the rule-based pass rate from **0% to 100%** for two runs. The safety score also improved from **4.4 to 4.8–5.0 out of 5** while **creativity dropped slightly from 4.0 to around 3.7.**
 
 ## How it works
 
