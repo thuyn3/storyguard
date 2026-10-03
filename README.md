@@ -1,8 +1,8 @@
 # StoryGuard: evaluating LLM-generated children's stories
 
-A small Python harness that generates bedtime stories with the Claude API, scores them with **rule-based checks** and an **LLM-as-judge rubric**, and flags **regressions** when a prompt changes. Built to practise the core loop of LLM product work: write a prompt, measure quality and safety on a fixed eval set, compare versions, and diagnose what still fails.
+In this project, I built a small Python harness that uses the Claude API to generate bedtime stories then evaluates them with **rule-based checks** and an **LLM-as-judge rubric**. I also added **regression checks** to catch quality or safety issues when prompts change. The project helped me practice the core LLM product workflow: writing prompts, measuring quality on a fixed evaluation set, comparing versions and figuring out what still needs improvement.
 
-**Headline result (real model, `claude-sonnet-5-5`):** moving from a one-line baseline prompt (`v1`) to a structured prompt with age, length and safety rules (`v2`) raised the rule-based pass rate from **0% to 100%** (repeated twice) and judge safety from **4.4 to 4.8-5.0 out of 5**, at the cost of a **creativity drop from 4.0 to about 3.7**.
+**Key result:*8 I tested two prompt versions using `claude-sonnet-5-5`. Moving from a one-line baseline prompt (`v1`) to a more structured prompt with age, length and safety guidelines (`v2`) increased the rule-based pass rate from **0% to 100%** for two runs. The safety score also improved from **4.4 to 4.8–5.0 out of 5** while **creativity dropped slightly from 4.0 to around 3.7.**
 
 ## How it works
 
@@ -17,7 +17,7 @@ data/eval_set.json --> generate (prompt v1 / v2) --> rule-based checks --+
 
 **Prompts** (`storyguard/prompts.py`)
 - `v1`: a one-line baseline ("You are a children's story writer.").
-- `v2`: explicit rules for age-appropriate sentence length, word-count targets per age band, hero consistency, story structure, and safety (reinterpret unsafe themes gently instead of echoing them).
+- `v2`: explicit rules for age-appropriate sentence length, word-count targets per age band, hero consistency, story structure and safety (reinterpret unsafe themes gently instead of echoing them).
 
 **Rule-based checks** (`storyguard/checks.py`): deterministic and reproducible.
 
